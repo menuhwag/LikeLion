@@ -1,7 +1,5 @@
 # 멋쟁이사자처럼 백엔드 스쿨 2기
 
----
-
 ## 과제
 
 ### [20221004 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221004)
