@@ -2,7 +2,7 @@ package codeup.odd_even_plus;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main { // 1161
     public static void main(String[] args) {
         /*
         정수 두개가 입력으로 들어온다.
