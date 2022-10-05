@@ -6,6 +6,10 @@ public class RandomCalculator extends Calculator{
         super(num, randomNumberCreator.numberCreate());
     }
 
+    public int getRandomNumber() {
+        return b;
+    }
+
     @Override
     public double divide() {
         if (b == 0) throw new ArithmeticException("랜덤하게 생성된 숫자가 0입니다.");
