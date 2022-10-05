@@ -1,8 +1,8 @@
 package practice.java_221005;
 
 public class Calculator {
-    private int a;
-    private int b;
+    protected int a;
+    protected int b;
 
     public Calculator(int a, int b) {
         this.a = a;
