@@ -13,7 +13,7 @@ public class RandomCalculatorMain {
             try {
                 System.out.printf("a / b = %f\n", cal.divide());
             } catch (ArithmeticException e) {
-                System.out.println(e.getMessage());
+                System.out.println("a / b = X " + e.getMessage());
             }
         }
     }
