@@ -10,7 +10,11 @@ public class RandomCalculatorMain {
             System.out.printf("a + b = %d\n", cal.plus());
             System.out.printf("a - b = %d\n", cal.minus());
             System.out.printf("a * b = %d\n", cal.multiple());
-            System.out.printf("a / b = %f\n", cal.divide());
+            try {
+                System.out.printf("a / b = %f\n", cal.divide());
+            } catch (ArithmeticException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
