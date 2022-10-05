@@ -13,6 +13,6 @@ public class RandomCalculator extends Calculator{
     @Override
     public double divide() {
         if (b == 0) throw new ArithmeticException("랜덤하게 생성된 숫자가 0입니다.");
-        return (double) a / b;
+        return super.divide();
     }
 }
