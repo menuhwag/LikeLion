@@ -2,7 +2,7 @@ package practice.java_221005.calculator;
 
 public class RandomCalculator extends Calculator{
 
-    public RandomCalculator(int num, RandomNumberCreator randomNumberCreator) {
+    public RandomCalculator(int num, NumberCreator randomNumberCreator) {
         super(num, randomNumberCreator.numberCreate());
     }
 
