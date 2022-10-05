@@ -1,4 +1,4 @@
-package practice.java_221005;
+package practice.java_221005.calculator;
 
 public class CalculatorMain {
     public static void main(String[] args) {

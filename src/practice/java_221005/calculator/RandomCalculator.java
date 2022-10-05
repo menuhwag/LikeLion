@@ -1,4 +1,4 @@
-package practice.java_221005;
+package practice.java_221005.calculator;
 
 public class RandomCalculator extends Calculator{
 
