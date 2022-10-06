@@ -9,6 +9,14 @@ public class AlphabetCounter {
     public AlphabetCounter(String str) {
         this.str = str.toLowerCase();
         this.alphabetCount = new HashMap<>();
+        countAlphabet();
+    }
+
+    public HashMap<Character, Integer> getAlphabetCount() {
+        return alphabetCount;
+    }
+
+    private void countAlphabet() {
         for (int i = 0; i < str.length(); i++) { // str 길이만큼 반복
             if (isAlphabet(str.charAt(i))) { // 알파벳인지 아닌지 구분
                 alphabetCount.put(str.charAt(i), alphabetCount.getOrDefault(str.charAt(i), 0) + 1);
@@ -16,10 +24,6 @@ public class AlphabetCounter {
                 // 그리고 +1 한 값으로 설정해준다.
             }
         }
-    }
-
-    public HashMap<Character, Integer> getAlphabetCount() {
-        return alphabetCount;
     }
 
     private boolean isAlphabet(char ch) { // 알파벳인지 아닌지 구분
