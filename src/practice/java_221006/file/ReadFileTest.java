@@ -18,5 +18,15 @@ public class ReadFileTest {
         for (File file : dir.listFiles()) {
             System.out.println(file);
         }
+        /*
+        .\.git
+        .\.gitignore
+        .\.idea
+        .\a_file.txt
+        .\LikeLion.iml
+        .\out
+        .\Readme.md
+        .\src
+        */
     }
 }
