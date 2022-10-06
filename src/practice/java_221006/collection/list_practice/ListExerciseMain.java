@@ -1,4 +1,4 @@
-package practice.java_221006.collection;
+package practice.java_221006.collection.list_practice;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ public class ListExerciseMain {
     public static void main(String[] args) {
         ListExercise listExercise = new ListExercise();
 
-        List<String> students = listExercise.getStudents();
+        List<Student> students = listExercise.getStudents();
 
-        for (String student : students) {
+        for (Student student : students) {
             System.out.println(student);
         }
     }
