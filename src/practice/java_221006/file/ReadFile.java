@@ -1,7 +1,6 @@
 package practice.java_221006.file;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
