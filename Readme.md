@@ -2,11 +2,11 @@
 
 ## 수업 중
 
-### [코드](https://github.com/menuhwang/LikeLion/tree/main/src/practice/java_221006)
+### [코드](https://github.com/menuhwang/LikeLion/tree/main/src/practice/java_221007)
 
 ## 과제
 
-### [20221005 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221005)
+### [20221006 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221006)
 
 ## Week 3
 + Git & GitHub 사용법
@@ -20,3 +20,12 @@
   + main 메서드(psvm) 없는 객체 작성
   + 객체(인스턴스) 생성하여 활용
   + 인터페이스 활용
++ Collection
+  + List
+    + ArrayList
+  + Set
++ Map
+  + HashMap
++ File
+  + FileReader
+  + BufferedReader
