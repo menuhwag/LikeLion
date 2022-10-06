@@ -24,7 +24,15 @@ public class ReadFile {
     }
 
     public String readALine(String filename) throws IOException {
+        return readLines(filename, 1);
+    }
+
+    public String readLines(String filename, int lines) throws IOException{
         BufferedReader br = new BufferedReader(new FileReader(filename));
-        return br.readLine();
+        String result = "";
+        for (int i = 0; i < lines; i++) {
+            result += br.readLine() + "\n";
+        }
+        return result.substring(0, result.length() - 1); // 마지막 줄바꿈 제거
     }
 }

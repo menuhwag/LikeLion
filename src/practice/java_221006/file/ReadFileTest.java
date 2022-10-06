@@ -10,7 +10,8 @@ public class ReadFileTest {
             System.out.println(readFile.readAChar("a_file.txt")); // 한 글자 읽기
             System.out.println(readFile.read2Char("a_file.txt")); // 두 글자 읽기
             System.out.println(readFile.readToString("a_file.txt",5)); // n 글자 읽기
-            System.out.println(readFile.readALine("a_file.txt"));
+            System.out.println(readFile.readALine("a_file.txt")); // 한 개 라인 읽기
+            System.out.println(readFile.readLines("a_file.txt", 2));
         } catch (IOException e) {
             e.printStackTrace();
         }
