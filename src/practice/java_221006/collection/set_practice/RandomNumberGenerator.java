@@ -5,4 +5,8 @@ public class RandomNumberGenerator implements NumberGenerator{
     public int generate(int num) {
         return (int)(Math.random()*num);
     }
+
+    public int generate(int num, int offset) {
+        return generate(num) + offset;
+    }
 }
