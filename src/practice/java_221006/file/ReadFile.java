@@ -6,18 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class ReadFile {
-    private String filename;
-
-    public ReadFile(String filename) {
-        this.filename = filename;
-    }
-
-    public char readAChar() throws IOException {
+    public char readAChar(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         return (char)br.read();
     }
 
-    public String read2Char() throws IOException {
+    public String read2Char(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String result = "";
         for (int i = 0; i < 2; i++) {
@@ -26,7 +20,7 @@ public class ReadFile {
         return result;
     }
 
-    public String readToString(int n) throws IOException {
+    public String readToString(String filename, int n) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String result = "";
         for (int i = 0; i < n; i++) {
@@ -35,7 +29,7 @@ public class ReadFile {
         return result;
     }
 
-    public String readALine() throws IOException {
+    public String readALine(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         return br.readLine();
     }
