@@ -1,5 +1,10 @@
 package practice.java_221007.bigdata_project;
 
+import practice.java_221007.bigdata_project.chart.Categories;
+import practice.java_221007.bigdata_project.chart.Data;
+import practice.java_221007.bigdata_project.chart.HeatmapChart;
+import practice.java_221007.bigdata_project.chart.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +15,7 @@ public class TransferHistoryAnalyzer {
         this.transferHistories = transferHistories;
     }
 
-    public List<TransferHistory> getTransferHistoriesByCity(int fromCity, int toCity) {
+    public List<TransferHistory> getTransferHistoriesByCity(City fromCity, City toCity) {
         List<TransferHistory> result = new ArrayList<>();
         for (TransferHistory transferHistory : this.transferHistories) {
             if (transferHistory.getFromCity() == fromCity && transferHistory.getToCity() == toCity) {
@@ -20,23 +25,51 @@ public class TransferHistoryAnalyzer {
         return result;
     }
 
-    public int getTransferHistoriesCountByCity(int fromCity, int toCity) {
-        return TransferCounter.getCounter()[fromCity][toCity];
+    public int getTransferHistoriesCountByCity(City fromCity, City toCity) {
+        return TransferCounter.getCounter()[fromCity.getIndex()][toCity.getIndex()];
     }
 
     public void populationTransferCity() {
-        int fromCity = 0;
-        int toCity = 0;
+        int fromIdx = 0;
+        int toIdx = 0;
         int maxCount = -1;
         for (int i = 0; i < TransferCounter.getCounter().length; i++) {
             for (int j = 0; j < TransferCounter.getCounter()[i].length; j++) {
                 if (maxCount < TransferCounter.getCounter()[i][j]) {
                     maxCount = TransferCounter.getCounter()[i][j];
-                    fromCity = i;
-                    toCity = j;
+                    fromIdx = i;
+                    toIdx = j;
                 }
             }
         }
-        System.out.printf("가장 많은 전입전출\n전출 도시 : %d\n전입 도시 : %d\n", fromCity, toCity);
+        System.out.printf("가장 많은 전입전출\n전출 도시 : %s\n전입 도시 : %s\n", City.indexOf(fromIdx).getName(), City.indexOf(toIdx).getName());
     }
+
+    public HeatmapChart toChart() {
+        HeatmapChart chart = new HeatmapChart();
+        chart.setTitle(new Text("인구 이동 데이터 분석"));
+
+        Categories categories = new Categories();
+        categories.setCategories(City.getNames());
+
+        chart.setxAxis(categories);
+        chart.setyAxis(categories);
+
+        Data data = new Data();
+        for (int i = 0; i < TransferCounter.getCounter().length; i++) {
+            for (int j = 0; j < TransferCounter.getCounter()[i].length; j++) {
+                int[] value = new int[3];
+                value[0] = i;
+                value[1] = j;
+                value[2] = TransferCounter.getCounter()[i][j];
+                data.add(value);
+            }
+        }
+
+        chart.setData(data);
+
+        return chart;
+    }
+
+
 }

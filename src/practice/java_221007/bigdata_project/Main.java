@@ -18,15 +18,18 @@ public class Main {
 
         System.out.println(System.currentTimeMillis() - start + "ms"); // 타이머 종료 출력
 
-        System.out.printf("전체 인구 이동 건수 : %d", transferHistories.size());
+        System.out.printf("전체 인구 이동 건수 : %d\n", transferHistories.size());
 
         TransferHistoryAnalyzer transferHistoryAnalyzer = new TransferHistoryAnalyzer(transferHistories); // 인구 이동 분석기 초기화
 
-        List<TransferHistory> getTransferHistories서울To부산 = transferHistoryAnalyzer.getTransferHistoriesByCity(11, 50); // 인구 이동 분석 11에서 50으로 이동.
-
-        System.out.println(getTransferHistories서울To부산.size() + "건"); // 11에서 50으로 이동 건수 출력.
-
-        transferHistoryAnalyzer.populationTransferCity(); // 가장 이동이 많은 전입 전출 도시 코드 출력.
+        transferHistoryAnalyzer.toChart().save("heatmap.json");
+//        City fromCity = City.SEOUL;
+//        City toCity = City.BUSAN;
+//        List<TransferHistory> getTransferHistories서울To부산 = transferHistoryAnalyzer.getTransferHistoriesByCity(fromCity, toCity); // 인구 이동 분석 서울에서 부산으로 이동.
+//
+//        System.out.println(getTransferHistories서울To부산.size() + "건"); // 11에서 50으로 이동 건수 출력.
+//
+//        transferHistoryAnalyzer.populationTransferCity(); // 가장 이동이 많은 전입 전출 도시 코드 출력.
 
 
 //        for (int[] arr : TransferCounter.getCounter()) { // TransferCounter 출력

@@ -33,7 +33,7 @@ public class TransferHistoryFileReader {
             TransferHistory data;
             while ((data = nextTransferHistory()) != null) { // this.nextTransferHistory 반복
                 this.transferHistoryList.add(data);
-                TransferCounter.increaseCnt(data.getFromCity(), data.getToCity()); // 인구 이동 회수 증가.
+                TransferCounter.increaseCnt(data.getFromCity().getIndex(), data.getToCity().getIndex()); // 인구 이동 회수 증가.
             }
             bufferedReader.close(); // 버퍼리더 종료.
             fileReader.close(); // 파일리더 종료.
