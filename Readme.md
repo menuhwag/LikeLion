@@ -2,11 +2,11 @@
 
 ## 수업 중
 
-### [코드](https://github.com/menuhwang/LikeLion/tree/main/src/practice/java_221007)
+### [코드](https://github.com/menuhwang/LikeLion/tree/main/src/practice/java_221011)
 
 ## 과제
 
-### [20221006 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221006)
+### [20221007 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221007)
 
 ## Week 3
 + Git & GitHub 사용법
@@ -29,3 +29,8 @@
 + File
   + FileReader
   + BufferedReader
++ 대용량 처리 프로젝트
+  + 인터페이스 활용
+  + 객체 지향 프로그래밍
+
+## Week 4
