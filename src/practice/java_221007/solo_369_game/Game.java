@@ -19,10 +19,9 @@ public class Game {
 
     private List<Integer> parse(int number) {
         List<Integer> result = new ArrayList<>();
-        String str = String.valueOf(number);
-        for (int i = 0; i < str.length(); i++) {
-            int parseNumber = Integer.parseInt(String.valueOf(str.charAt(i)));
-            result.add(parseNumber);
+        while (number > 0) {
+            result.add(number % 10);
+            number = number / 10;
         }
         return result;
     }
