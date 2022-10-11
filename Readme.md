@@ -1,12 +1,8 @@
 # 멋쟁이사자처럼 백엔드 스쿨 2기
 
-## 수업 중
-
-### [코드](https://github.com/menuhwang/LikeLion/tree/main/src/practice/java_221011)
-
 ## 과제
 
-### [20221007 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221007)
+### [20221011 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221011)
 
 ## Week 3
 + Git & GitHub 사용법
@@ -34,3 +30,13 @@
   + 객체 지향 프로그래밍
 
 ## Week 4
++ 알고리즘 : 나눗셈의 몫과 나머지
+  + 자릿수 더하기
+  + 자릿수 구하기
++ AWS
+  + EC2
++ Docker
+  + MySQL 설치
++ DB
+  + 논리적 설계
+  + 물리적 설계
