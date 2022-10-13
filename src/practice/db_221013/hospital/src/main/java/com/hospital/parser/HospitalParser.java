@@ -28,7 +28,7 @@ public class HospitalParser implements Parser<Hospital> {
     }
 
     private String processString(String str) {
-        return str.replaceAll("\"", "").replaceAll("'", "\\\\'");
+        return str.replaceAll("\"", "");
     }
 
     private String parseId(String[] data) {
