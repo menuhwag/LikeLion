@@ -1,8 +1,11 @@
 # 멋쟁이사자처럼 백엔드 스쿨 2기
 
-## 과제
+## 프로젝트
 
-### [20221011 과제](https://github.com/menuhwang/LikeLion/tree/main/src/homework/homework_221011)
+### [대용량 데이터 처리](https://github.com/menuhwang/LikeLion/tree/main/src/practice/java_221007/bigdata_project_refactor)
+2021년도 인구 이동(전입, 전출) 분석.
+
+ + 서울에서 가장 많이 이동한 지역은 어디인가?
 
 ## Week 3
 + Git & GitHub 사용법
