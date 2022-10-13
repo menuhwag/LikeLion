@@ -62,7 +62,7 @@ public class HospitalParser implements Parser<Hospital> {
     }
 
     private String findSubdivision(String name) {
-        final String[] SUBDIVISION_LIST = {"피부과", "성형외과", "외과", "내과", "소아과", "가정의학과", "치과", "한의원"}; // 성형외과 보다 외과가 앞에 있으면 성형외과도 외과로 처리됨.
+        final String[] SUBDIVISION_LIST = {"재활의학과", "가정의학과", "이비인후과", "비뇨기과", "산부인과", "성형외과", "정형외과", "피부과", "소아과", "한의원", "안과", "외과", "내과", "치과"}; // 성형외과 보다 외과가 앞에 있으면 성형외과도 외과로 처리됨.
 
         for (String subdivision : SUBDIVISION_LIST) {
             if(name.contains(subdivision)) {
