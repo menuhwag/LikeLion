@@ -3,9 +3,13 @@ package com.hospital.parser;
 import com.hospital.domain.Hospital;
 
 public class HospitalParser implements Parser<Hospital> {
+    private String processString(String str) {
+        return str.replaceAll("\"", "").replaceAll("'", "\\\\'");
+    }
+
     @Override
     public Hospital parse(String str) {
-        String[] data = str.replaceAll("\"", "").replaceAll("'", "\\\\'").split(",");
+        String[] data = processString(str).split(",");
 
         String[] addressArr = data[1].split(" ");
 
