@@ -3,22 +3,16 @@ package com.hospital.parser;
 import com.hospital.domain.Hospital;
 
 public class HospitalParser implements Parser<Hospital> {
-    private String processString(String str) {
-        return str.replaceAll("\"", "").replaceAll("'", "\\\\'");
-    }
-
     @Override
     public Hospital parse(String str) {
         String[] data = processString(str).split(",");
 
-        String[] addressArr = data[1].split(" ");
-
-        String id = data[0];
-        String address = data[1];
-        String district = addressArr[0] + " " + addressArr[1];
-        String category = data[2];
-        int emergencyRoom = Integer.parseInt(data[6]);
-        String name = data[10];
+        String id = parseId(data);
+        String address = parseAddress(data);
+        String district = parseDistrict(data);
+        String category = parseCategory(data);
+        int emergencyRoom = parseEmergencyRoom(data);
+        String name = parseName(data);
         String subdivision = findSubdivision(name);
 
         Hospital hospital = new Hospital();
@@ -33,10 +27,44 @@ public class HospitalParser implements Parser<Hospital> {
         return hospital;
     }
 
-    private String findSubdivision(String name) {
-        String[] subdivisionList = {"피부과", "성형외과", "외과", "내과", "소아과", "가정의학과", "치과", "한의원"}; // 성형외과 보다 외과가 앞에 있으면 성형외과도 외과로 처리됨.
+    private String processString(String str) {
+        return str.replaceAll("\"", "").replaceAll("'", "\\\\'");
+    }
 
-        for (String subdivision : subdivisionList) {
+    private String parseId(String[] data) {
+        final int INDEX = 0;
+        return data[INDEX];
+    }
+
+    private String parseAddress(String[] data) {
+        final int INDEX = 1;
+        return data[INDEX];
+    }
+
+    private String parseDistrict(String[] data) {
+        String[] addressArr = parseAddress(data).split(" ");
+        return addressArr[0] + " " + addressArr[1];
+    }
+
+    private String parseCategory(String[] data) {
+        final int INDEX = 2;
+        return data[INDEX];
+    }
+
+    private int parseEmergencyRoom(String[] data) {
+        final int INDEX = 6;
+        return Integer.parseInt(data[INDEX]);
+    }
+
+    private String parseName(String[] data) {
+        final int INDEX = 10;
+        return data[INDEX];
+    }
+
+    private String findSubdivision(String name) {
+        final String[] SUBDIVISION_LIST = {"피부과", "성형외과", "외과", "내과", "소아과", "가정의학과", "치과", "한의원"}; // 성형외과 보다 외과가 앞에 있으면 성형외과도 외과로 처리됨.
+
+        for (String subdivision : SUBDIVISION_LIST) {
             if(name.contains(subdivision)) {
                 return subdivision;
             }
