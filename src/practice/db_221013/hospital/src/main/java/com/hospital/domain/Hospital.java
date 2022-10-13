@@ -67,36 +67,9 @@ public class Hospital {
     }
 
     public String getValue() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("(")
-                .append("'")
-                .append(getId())
-                .append("',")
-                .append("'")
-                .append(getAddress())
-                .append("',")
-                .append("'")
-                .append(getDistrict())
-                .append("',")
-                .append("'")
-                .append(getCategory())
-                .append("',")
-                .append("'")
-                .append(getEmergencyRoom())
-                .append("',")
-                .append("'")
-                .append(getName())
-                .append("',");
+        String result = String.format("(\"%s\",\"%s\",\"%s\",\"%s\",\"%d\",\"%s\",%s)",
+                getId(), getAddress(), getDistrict(), getCategory(), getEmergencyRoom(), getName(), (getSubdivision() == null) ? "null" : "\""+ getSubdivision() + "\"");
 
-        if (getSubdivision() == null) {
-            sb.append("null");
-        } else {
-            sb.append("'")
-                    .append(getSubdivision())
-                    .append("'");
-        }
-        sb.append(")");
-
-        return sb.toString();
+        return result;
     }
 }
