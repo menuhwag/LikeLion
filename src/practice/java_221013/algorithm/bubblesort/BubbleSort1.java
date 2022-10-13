@@ -3,12 +3,12 @@ package practice.java_221013.algorithm.bubblesort;
 import java.util.Arrays;
 
 public class BubbleSort1 {
-    public void sort(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] > arr[j]) swap(arr, i, j);
-            }
+    public void sort(int[] arr, int i) {
+        if (i == arr.length) return;
+        for (int j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) swap(arr, i, j);
         }
+        sort(arr, i + 1);
     }
 
     public void swap(int[] arr, int i, int j) {
@@ -23,7 +23,7 @@ public class BubbleSort1 {
 
         BubbleSort1 bubbleSort = new BubbleSort1();
 
-        bubbleSort.sort(arr);
+        bubbleSort.sort(arr, 0);
 
         System.out.println(Arrays.toString(arr));
     }
