@@ -7,7 +7,7 @@ public class InsertionSortTest {
     public static void main(String[] args) {
         int[] arr = {8, 5, 6, 2, 4};
         InsertionSort is = new InsertionSort();
-        is.sort(arr);
+        is.sort(arr, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 }

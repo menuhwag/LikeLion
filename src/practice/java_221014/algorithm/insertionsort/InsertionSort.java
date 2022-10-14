@@ -2,16 +2,16 @@ package practice.java_221014.algorithm.insertionsort;
 
 public class InsertionSort {
 
-    public void sort(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (arr[j-1] > arr[j]) {
-                    swap(arr, j, j - 1);
-                    continue;
-                }
-                break;
+    public int[] sort(int[] arr, int i) { // 재귀 함수 버전.
+        if ( i == 0 ) return arr;
+        for (int j = i; j > 0; j--) {
+            if (arr[j-1] > arr[j]) {
+                swap(arr, j, j - 1);
+                continue;
             }
+            break;
         }
+        return sort(arr, i - 1);
     }
 
     public void swap(int[] arr, int i, int j) {
