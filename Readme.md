@@ -1,6 +1,6 @@
 # 멋쟁이사자처럼 백엔드 스쿨 2기
 
-### 바로가기
+## 바로가기
 
  + 과제 디렉토리 **_[(221013)](https://github.com/menuhwang/LikeLion/tree/main/src/week4/_221013/homework)_**
 
