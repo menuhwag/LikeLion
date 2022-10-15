@@ -2,7 +2,7 @@
 
 ## 바로가기
 
- + 과제 디렉토리 **_[(221013)](https://github.com/menuhwang/LikeLion/tree/main/src/week4/_221013/homework)_**
+ + 과제 디렉토리 **_[(221014)](https://github.com/menuhwang/LikeLion/tree/main/src/week4/_221014/homework)_**
 
  + 수업 디렉토리 **_[(221014)](https://github.com/menuhwang/LikeLion/tree/main/src/week4/_221014/study)_**
 
