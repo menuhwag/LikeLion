@@ -2,7 +2,7 @@
 
 ## 프로젝트
 
-### [대용량 데이터 처리](https://github.com/menuhwang/LikeLion/tree/main/src/practice/java_221007/bigdata_project_refactor)
+### [대용량 데이터 처리](https://github.com/menuhwang/LikeLion/tree/main/src/week3/_221007/study/bigdata_project_refactor)
 2021년도 인구 이동(전입, 전출) 분석.
 
  + 서울에서 가장 많이 이동한 지역은 어디인가?
