@@ -1,11 +1,21 @@
 # 멋쟁이사자처럼 백엔드 스쿨 2기
 
+### 바로가기
+
+ + 과제 디렉토리 **_[(221013)](https://github.com/menuhwang/LikeLion/tree/main/src/week4/_221013/homework)_**
+
+ + 수업 디렉토리 **_[(221014)](https://github.com/menuhwang/LikeLion/tree/main/src/week4/_221014/study)_**
+
+<br><br>
+
 ## 프로젝트
 
 ### [대용량 데이터 처리](https://github.com/menuhwang/LikeLion/tree/main/src/week3/_221007/study/bigdata_project_refactor)
 2021년도 인구 이동(전입, 전출) 분석.
 
  + 서울에서 가장 많이 이동한 지역은 어디인가?
+
+<br>
 
 ## Week 3
 + Git & GitHub 사용법
@@ -51,3 +61,7 @@
   + 논리적 설계
   + 물리적 설계
   + 데이터 가공
+  + SQL
+    + SELECT (LIMIT COUNT)
+    + DISTINCT
+    + UPDATE
