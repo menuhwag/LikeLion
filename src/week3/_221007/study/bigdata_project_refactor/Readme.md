@@ -16,7 +16,7 @@
 
 얼마나, 어떻게, 어떤 기준으로 클래스를 나누면 좋을지, 그리고 그 클래스들 사이를 어떻게 연결하는 것이 바람직할지 좀 더 공부가 필요함.
 
-![HeatmapChart](https://github.com/menuhwang/LikeLion/blob/main/src/practice/java_221007/bigdata_project_refactor/heatmapChart.png)
+![HeatmapChart](https://github.com/menuhwang/LikeLion/blob/main/src/week3/_221007/study/bigdata_project_refactor/heatmapChart.png)
 
 ## 파일
 
