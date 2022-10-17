@@ -5,15 +5,9 @@ import domain.Hospital;
 import java.sql.*;
 
 public class HospitalDao {
-    private DBConnector dbConnector;
-
-    public HospitalDao(DBConnector dbConnector) {
-        this.dbConnector = dbConnector;
-    }
 
     public void add(Hospital hospital) throws SQLException, ClassNotFoundException {
-        Connection conn = dbConnector.connect();
-
+        Connection conn = ConnectionFactory.getConnection();
         PreparedStatement ps = conn.prepareStatement(
                 "INSERT INTO seoul(id, address, district, category, emergency_room, name, subdivision)" +
                         "VALUES (?, ?, ?, ?, ?, ?, ?)"
@@ -38,7 +32,7 @@ public class HospitalDao {
     }
 
     public Hospital findById(String id) throws SQLException, ClassNotFoundException {
-        Connection conn = dbConnector.connect();
+        Connection conn = ConnectionFactory.getConnection();
         PreparedStatement ps = conn.prepareStatement(
                 String.format("SELECT * FROM seoul WHERE id = '%s'", id)
         );

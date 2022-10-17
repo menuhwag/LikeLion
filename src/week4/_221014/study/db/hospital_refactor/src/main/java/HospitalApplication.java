@@ -4,8 +4,6 @@ import context.filehandler.FileReadImpl;
 import context.filehandler.FileWriteImpl;
 import context.sqlfilegenerator.SQLFileGenerator;
 import context.sqlfilegenerator.SQLFileGeneratorImpl;
-import dao.DBConnector;
-import dao.DBConnectorImpl;
 import dao.HospitalDao;
 import domain.Hospital;
 import parser.HospitalParser;
@@ -22,8 +20,7 @@ public class HospitalApplication {
 //        SQLFileGenerator<Hospital> hospitalSQLFileGenerator = new SQLFileGeneratorImpl(hospitalFileHandlerContext, "hospital", "seoul");
 //        hospitalSQLFileGenerator.generate("seoul_hospital_info.csv", "test.sql");
 
-        DBConnector dbConnector = new DBConnectorImpl();
-        HospitalDao hospitalDao = new HospitalDao(dbConnector);
+        HospitalDao hospitalDao = new HospitalDao();
 
         Hospital hospital = new Hospital();
         hospital.setId("D1000000");
