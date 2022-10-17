@@ -2,7 +2,7 @@
 
 ## 바로가기
 
- + 과제 디렉토리 **_[(221014)](https://github.com/menuhwang/LikeLion/tree/main/src/week4/_221014/homework)_**
+ + 과제 디렉토리 **_[(221017)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221017/homework)_**
 
  + 수업 디렉토리 **_[(221017)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221017/study)_**
 
@@ -65,3 +65,8 @@
     + SELECT (LIMIT COUNT)
     + DISTINCT
     + UPDATE
+
+## Week 5
++ JAVA
+  + JDBC
+  + 환경변수
