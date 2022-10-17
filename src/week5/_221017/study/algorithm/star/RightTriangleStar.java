@@ -1,7 +1,10 @@
 package week5._221017.study.algorithm.star;
 
 public class RightTriangleStar {
-    private char ch;
+    private char ch = '*';
+
+    public RightTriangleStar() {
+    }
 
     public RightTriangleStar(char ch) {
         this.ch = ch;
