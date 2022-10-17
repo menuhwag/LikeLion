@@ -4,12 +4,8 @@ import java.util.Map;
 
 public class Application {
     public static void main(String[] args) throws Exception{
-        UserDao userDao = new UserDao();
-//        userDao.add("철수", "passw0rd");
+        HospitalDao hospitalDao = new HospitalDao();
 
-        Map<String, Object> user = userDao.findById(3L);
-        for (String key : user.keySet()) {
-            System.out.printf("%s=%s\n", key, user.get(key));
-        }
+        hospitalDao.add("D1000000", "인천광역시 남동구 구월동", "사랑내과");
     }
 }
