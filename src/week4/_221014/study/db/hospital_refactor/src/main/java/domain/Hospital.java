@@ -41,7 +41,7 @@ public class Hospital {
         this.category = category;
     }
 
-    public int getEmergencyRoom() {
+    public Integer getEmergencyRoom() {
         return emergencyRoom;
     }
 
