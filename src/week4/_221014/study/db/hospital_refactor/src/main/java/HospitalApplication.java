@@ -1,13 +1,7 @@
-import context.filehandler.FileHandlerContext;
-import context.filehandler.FileRead;
-import context.filehandler.FileReadImpl;
-import context.filehandler.FileWriteImpl;
-import context.sqlfilegenerator.SQLFileGenerator;
-import context.sqlfilegenerator.SQLFileGeneratorImpl;
+import dao.SqlConnector;
 import dao.HospitalDao;
+import dao.MysqlConnector;
 import domain.Hospital;
-import parser.HospitalParser;
-import parser.Parser;
 
 import java.sql.SQLException;
 
@@ -20,7 +14,8 @@ public class HospitalApplication {
 //        SQLFileGenerator<Hospital> hospitalSQLFileGenerator = new SQLFileGeneratorImpl(hospitalFileHandlerContext, "hospital", "seoul");
 //        hospitalSQLFileGenerator.generate("seoul_hospital_info.csv", "test.sql");
 
-        HospitalDao hospitalDao = new HospitalDao();
+        SqlConnector mysqlConnectionFactory = new MysqlConnector();
+        HospitalDao hospitalDao = new HospitalDao(mysqlConnectionFactory);
 
         Hospital hospital = new Hospital();
         hospital.setId("D1000000");
