@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>미니 스타크래프트</title>
+    </head>
+    <body>
+        <h1 id='hp'>HP: 3</h1>
+        <div class='background'>
+            <img id='drone' src="drone.png" alt="drone">
+            <img id='spit' src="spit.png" alt="spit">
+            <img id='bunker' src="bunker.png" alt="bunker">
+        </div>
+        <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+        <script>
+            var hp = 3;
+            $('#drone').click(function(){
+                $('#spit').fadeIn();
+                $('#spit').animate({left: '+=200'}, 50);
+                $('#spit').fadeOut(function() {
+                    hp = hp - 1;
+                    if (hp <= 0) {
+                        hp = 0;
+                        $('#bunker').fadeOut();
+                    }
+                    $('#hp').text('HP: ' + hp);
+                });
+                $('#spit').css({left: '150px'});
+            })
+        </script>
+    </body>
+</html>
