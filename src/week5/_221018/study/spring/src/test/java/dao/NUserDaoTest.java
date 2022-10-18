@@ -8,17 +8,19 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class NUserDaoTest {
-    private UserDao nUserDao = new NUserDao();
     @Test
     void addAndGet() throws SQLException, ClassNotFoundException {
+        ConnectionMarker connectionMarker = new NConnectionMarker();
+        UserDao dao = new UserDao(connectionMarker);
+
         User user1 = new User();
         user1.setId("whiteship");
         user1.setName("백기선");
         user1.setPassword("married");
 
-        nUserDao.add(user1);
+        dao.add(user1);
 
-        User user2 = nUserDao.get(user1.getId());
+        User user2 = dao.get(user1.getId());
 
         assertNotNull(user2.getId());
         assertNotNull(user2.getName());
