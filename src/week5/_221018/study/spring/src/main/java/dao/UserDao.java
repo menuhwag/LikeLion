@@ -5,7 +5,7 @@ import domain.User;
 import java.sql.*;
 import java.util.Map;
 
-public class UserDao {
+public abstract class UserDao {
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection c = getConnection();
 
@@ -46,33 +46,5 @@ public class UserDao {
         return user;
     }
 
-    private Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Map<String, String> env = System.getenv();
-
-        String DB_HOST = env.get("DB_HOST");
-        String DB_USER = env.get("DB_USER");
-        String DB_PASSWORD = env.get("DB_PASSWORD");
-
-        Connection c = DriverManager.getConnection(DB_HOST, DB_USER, DB_PASSWORD);
-
-        return c;
-    }
-
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        UserDao dao = new UserDao();
-
-        User user = new User();
-        user.setId("whiteship");
-        user.setName("백기선");
-        user.setPassword("married");
-
-        dao.add(user);
-
-        System.out.println(user.getId() + " 등록 성공");
-
-        User user2 = dao.get(user.getId());
-        System.out.println(user2.getName());
-    }
+    public abstract Connection getConnection() throws ClassNotFoundException, SQLException;
 }
