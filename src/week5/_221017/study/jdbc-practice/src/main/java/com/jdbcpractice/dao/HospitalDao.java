@@ -1,21 +1,18 @@
-package com.jdbcpractice;
+package com.jdbcpractice.dao;
 
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class HospitalDao {
+    private SqlConnector sqlConnector;
+
+    public HospitalDao(SqlConnector sqlConnector) {
+        this.sqlConnector = sqlConnector;
+    }
+
     public void add(String id, String address, String name) throws SQLException, ClassNotFoundException {
-        Map<String, String> env = System.getenv();
-        String host = env.get("DB_HOST");
-        String user = env.get("DB_USER");
-        String pw = env.get("DB_PASSWORD");
-
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection conn = DriverManager.getConnection(
-                host, user, pw
-        );
+        Connection conn = sqlConnector.getConnection();
 
         PreparedStatement ps = conn.prepareStatement(
                 "INSERT INTO seoul(id, address, name) VALUES (?, ?, ?)"

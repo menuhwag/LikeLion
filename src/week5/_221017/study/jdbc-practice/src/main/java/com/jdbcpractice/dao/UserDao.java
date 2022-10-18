@@ -1,4 +1,4 @@
-package com.jdbcpractice;
+package com.jdbcpractice.dao;
 
 import java.sql.*;
 import java.util.HashMap;
