@@ -2,9 +2,9 @@
 
 ## 바로가기
 
- + 과제 디렉토리 **_[(221017)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221017/homework)_**
+ + 과제 디렉토리 **_[(221018)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221018/homework)_**
 
- + 수업 디렉토리 **_[(221018)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221018/study)_**
+ + 수업 디렉토리 **_[(221019)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221019/study)_**
 
 <br><br>
 
@@ -70,3 +70,9 @@
 + JAVA
   + JDBC
   + 환경변수
++ Spring
+  + 관심사 분리
+    + 메소드 추출
+    + 템플릿 메소드 패턴
+    + 팩토리 메소드 패턴
+    + 인터페이스로 분리
