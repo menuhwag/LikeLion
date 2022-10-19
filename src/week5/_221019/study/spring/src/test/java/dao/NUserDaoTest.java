@@ -61,8 +61,7 @@ class NUserDaoTest {
     @Test
     @DisplayName("전체 데이터 개수 읽기 테스트")
     void getCountAll() throws SQLException, ClassNotFoundException {
-        UserDao dao = new UserDaoFactory().nUserDao();
-
+        UserDao dao = context.getBean(UserDaoFactory.class).nUserDao();
         User user1 = new User();
         user1.setId("whiteship");
         user1.setName("백기선");
