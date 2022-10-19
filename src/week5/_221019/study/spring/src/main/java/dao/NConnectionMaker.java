@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Map;
 
-public class NConnectionMarker implements ConnectionMarker {
+public class NConnectionMaker implements ConnectionMaker {
     @Override
     public Connection makeConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");

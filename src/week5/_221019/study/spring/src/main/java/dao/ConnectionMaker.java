@@ -3,6 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public interface ConnectionMarker {
+public interface ConnectionMaker {
     Connection makeConnection() throws SQLException, ClassNotFoundException;
 }

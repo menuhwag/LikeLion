@@ -3,17 +3,16 @@ package dao;
 import domain.User;
 
 import java.sql.*;
-import java.util.Map;
 
 public class UserDao {
-    private ConnectionMarker connectionMarker;
+    private ConnectionMaker connectionMaker;
 
-    public UserDao(ConnectionMarker connectionMarker) {
-        this.connectionMarker = connectionMarker;
+    public UserDao(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
     }
 
     public void add(User user) throws ClassNotFoundException, SQLException {
-        Connection c = connectionMarker.makeConnection();
+        Connection c = connectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "INSERT INTO users(id, name, password) values (?, ?, ?)"
@@ -29,7 +28,7 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Connection c = connectionMarker.makeConnection();
+        Connection c = connectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "select * from users where id = ?"
@@ -53,7 +52,7 @@ public class UserDao {
     }
 
     public void deleteAll() throws SQLException, ClassNotFoundException {
-        Connection c = connectionMarker.makeConnection();
+        Connection c = connectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "DELETE FROM users"
@@ -66,7 +65,7 @@ public class UserDao {
     }
 
     public int getCountAll() throws SQLException, ClassNotFoundException {
-        Connection c = connectionMarker.makeConnection();
+        Connection c = connectionMaker.makeConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "SELECT COUNT(*) FROM users"
