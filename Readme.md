@@ -70,9 +70,19 @@
 + JAVA
   + JDBC
   + 환경변수
++ FE
+  + HTML
+  + JS
+  + CSS
+  + jQuery
 + Spring
   + 관심사 분리
     + 메소드 추출
     + 템플릿 메소드 패턴
     + 팩토리 메소드 패턴
     + 인터페이스로 분리
+  + 동작원리
+    + ApplicationContext
+    + IoC
+      + Bean
+    
