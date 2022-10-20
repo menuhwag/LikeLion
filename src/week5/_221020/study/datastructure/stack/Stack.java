@@ -1,5 +1,7 @@
 package week5._221020.study.datastructure.stack;
 
+import java.util.EmptyStackException;
+
 public class Stack {
     private Integer[] arr;
     private int top = -1;
@@ -15,7 +17,8 @@ public class Stack {
     }
 
     public Integer pop() {
-        return isEmpty() ? null : arr[--top];
+        if (isEmpty()) throw new EmptyStackException();
+        return arr[--top];
     }
 
     public boolean isEmpty() {
