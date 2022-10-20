@@ -2,9 +2,9 @@
 
 ## 바로가기
 
- + 과제 디렉토리 **_[(221018)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221018/homework)_**
+[//]: # ( + 과제 디렉토리 **_[&#40;221018&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221018/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221019)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221019/study)_**
+ + 수업 디렉토리 **_[(221020)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221020/study)_**
 
 <br><br>
 
