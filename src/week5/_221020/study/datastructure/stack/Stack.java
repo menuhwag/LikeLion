@@ -21,6 +21,11 @@ public class Stack {
         return arr[--top];
     }
 
+    public Integer peek() {
+        if (isEmpty()) throw new EmptyStackException();
+        return arr[top - 1];
+    }
+
     public boolean isEmpty() {
         return top == -1;
     }

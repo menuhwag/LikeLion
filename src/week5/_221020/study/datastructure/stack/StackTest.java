@@ -15,7 +15,11 @@ public class StackTest {
         System.out.printf("요소 추가 : %d\n", 3);
         stack.push(3);
 
+        System.out.printf("픽 : %d\n", stack.peek());
+
         System.out.printf("팝 : %d\n", stack.pop());
+
+        System.out.printf("픽 : %d\n", stack.peek());
 
         System.out.printf("요소 추가 : %d\n", 3);
         stack.push(3);
