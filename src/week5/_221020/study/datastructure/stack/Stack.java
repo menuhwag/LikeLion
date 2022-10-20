@@ -4,7 +4,7 @@ import java.util.EmptyStackException;
 
 public class Stack {
     private Integer[] arr;
-    private int top = -1;
+    private int top;
 
     public Stack(int size) {
         this.arr = new Integer[size];
