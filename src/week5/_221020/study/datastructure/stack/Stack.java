@@ -10,13 +10,20 @@ public class Stack {
     }
 
     public void push(int value) {
+        if (isFull()) throw new ArrayIndexOutOfBoundsException("배열이 꽉 참.");
         this.arr[top++] = value;
     }
 
     public Integer pop() {
-        return arr[--top];
+        return isEmpty() ? null : arr[--top];
     }
 
+    public boolean isEmpty() {
+        return top == -1;
+    }
 
+    public boolean isFull() {
+        return top == arr.length;
+    }
 
 }
