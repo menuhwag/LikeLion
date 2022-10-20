@@ -2,9 +2,9 @@
 
 ## 바로가기
 
-[//]: # ( + 과제 디렉토리 **_[&#40;221018&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221018/homework&#41;_**)
+ + 과제 디렉토리 **_[(221020)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221020/homework)_**
 
- + 수업 디렉토리 **_[(221020)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221020/study)_**
+ + 수업 디렉토리 **_[(221021)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/study)_**
 
 <br><br>
 
@@ -67,6 +67,8 @@
     + UPDATE
 
 ## Week 5
++ 자료구조
+  + 스택
 + JAVA
   + JDBC
   + 환경변수
@@ -81,6 +83,7 @@
     + 템플릿 메소드 패턴
     + 팩토리 메소드 패턴
     + 인터페이스로 분리
+    + 팩토리
   + 동작원리
     + ApplicationContext
     + IoC
