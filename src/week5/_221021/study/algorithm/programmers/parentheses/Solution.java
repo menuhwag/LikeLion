@@ -30,7 +30,7 @@ public class Solution {
                 stack.pop();
             }
         }
-        return stack.size() == 0;
+        return stack.isEmpty(); // stack에 isEmpty() 메소드가 이미 있다!
     }
 
     public boolean solution3(String str) { // 프로그래머스에 있는 답 중 살짝 설렌 코드
