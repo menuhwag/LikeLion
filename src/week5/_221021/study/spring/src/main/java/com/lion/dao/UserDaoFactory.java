@@ -7,6 +7,14 @@ import org.springframework.context.annotation.Configuration;
 public class UserDaoFactory {
     @Bean
     public UserDao awsUserDao() {
-        return new UserDao(new AwsConnectionMaker());
+        return new UserDao(awsConnectionMaker(), jdbcContext());
+    }
+
+    @Bean ConnectionMaker awsConnectionMaker() {
+        return new AwsConnectionMaker();
+    }
+
+    @Bean JdbcContext jdbcContext() {
+        return new JdbcContext(awsConnectionMaker());
     }
 }

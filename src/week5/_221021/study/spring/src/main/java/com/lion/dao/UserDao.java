@@ -9,13 +9,15 @@ import java.sql.SQLException;
 
 public class UserDao {
     private ConnectionMaker connectionMaker;
+    private JdbcContext jdbcContext;
 
-    public UserDao(ConnectionMaker connectionMaker) {
+    public UserDao(ConnectionMaker connectionMaker, JdbcContext jdbcContext) {
         this.connectionMaker = connectionMaker;
+        this.jdbcContext = jdbcContext;
     }
 
     public void add(final User user) throws SQLException {
-        jdbcContextWithStatementStrategy(new StatementStrategy() {
+        jdbcContext.workWithStatementStrategy(new StatementStrategy() {
             @Override
             public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
                 PreparedStatement ps = c.prepareStatement("INSERT INTO users(id, name, password) VALUES (? , ?, ?)");
@@ -103,38 +105,12 @@ public class UserDao {
     }
 
     public void deleteAll() throws SQLException{
-        jdbcContextWithStatementStrategy(new StatementStrategy() {
+        jdbcContext.workWithStatementStrategy(new StatementStrategy() {
             @Override
             public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
                 PreparedStatement ps = c.prepareStatement("DELETE FROM users");
                 return ps;
             }
         });
-    }
-
-    private void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException {
-        Connection c = null;
-        PreparedStatement ps = null;
-
-        try {
-            c = connectionMaker.makeConnection();
-            ps = stmt.makePreparedStatement(c);
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ignore) {
-                }
-            }
-            if (c != null) {
-                try {
-                    c.close();
-                } catch (SQLException ignore) {
-                }
-            }
-        }
     }
 }
