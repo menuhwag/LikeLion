@@ -2,7 +2,7 @@
 
 ## 바로가기
 
- + 과제 디렉토리 **_[(221020)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221020/homework)_**
+ + 과제 디렉토리 **_[(221021)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework)_**
 
  + 수업 디렉토리 **_[(221021)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/study)_**
 
@@ -88,4 +88,5 @@
     + ApplicationContext
     + IoC
       + Bean
+    + DI
     
