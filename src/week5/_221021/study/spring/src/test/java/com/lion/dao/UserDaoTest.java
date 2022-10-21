@@ -26,7 +26,7 @@ class UserDaoTest {
 
     @BeforeEach
     void setUp() {
-        dao = applicationContext.getBean(UserDaoFactory.class).awsUserDao();
+        dao = (UserDao) applicationContext.getBean("awsUserDao");
     }
 
     @Test
