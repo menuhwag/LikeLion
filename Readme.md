@@ -4,7 +4,7 @@
 
  + 과제 디렉토리 **_[(221021)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework)_**
 
- + 수업 디렉토리 **_[(221021)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/study)_**
+ + 수업 디렉토리 **_[(221024)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221024/study)_**
 
 <br><br>
 
