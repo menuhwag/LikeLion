@@ -1,16 +1,17 @@
 package com.lion.dao;
 
 import com.lion.domain.User;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,15 +19,20 @@ import static org.junit.jupiter.api.Assertions.*;
 @ContextConfiguration(classes = UserDaoFactory.class)
 class UserDaoTest {
     @Autowired
-    private ApplicationContext applicationContext;
-
     private UserDao dao;
 
-    private User user1 = new User("menu", "황민우", "password");
+    private User user1 = new User("id01", "짱구", "password");
+    private User user2 = new User("id02", "철수", "password");
+    private User user3 = new User("id03", "유리", "password");
 
     @BeforeEach
-    void setUp() {
-        dao = (UserDao) applicationContext.getBean("awsUserDao");
+    void setUp() throws SQLException {
+        dao.deleteAll();
+    }
+
+    @AfterEach
+    void rollback() throws SQLException {
+        dao.deleteAll();
     }
 
     @Test
@@ -38,8 +44,28 @@ class UserDaoTest {
         assertEquals(user1.getId(), find.getId());
         assertEquals(user1.getName(), find.getName());
         assertEquals(user1.getPassword(), find.getPassword());
+    }
 
-        dao.deleteAll();
+    @Test
+    @DisplayName("모든 유저 조회")
+    void getAll() throws SQLException {
+        dao.add(user1);
+        List<User> users1 = dao.getAll();
+        assertEquals(1, users1.size());
+        assertEquals(user1.getId(), users1.get(0).getId());
+
+        dao.add(user2);
+        List<User> users2 = dao.getAll();
+        assertEquals(2, users2.size());
+        assertEquals(user1.getId(), users2.get(0).getId());
+        assertEquals(user2.getId(), users2.get(1).getId());
+
+        dao.add(user3);
+        List<User> users3 = dao.getAll();
+        assertEquals(3, users3.size());
+        assertEquals(user1.getId(), users3.get(0).getId());
+        assertEquals(user2.getId(), users3.get(1).getId());
+        assertEquals(user3.getId(), users3.get(2).getId());
     }
 
     @Test
@@ -55,7 +81,6 @@ class UserDaoTest {
     void getCountAll()  throws SQLException {
         dao.add(user1);
         assertEquals(1, dao.getCountAll());
-        dao.deleteAll();
     }
 
     @Test
