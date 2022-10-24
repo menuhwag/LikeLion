@@ -69,8 +69,15 @@ class UserDaoTest {
     }
 
     @Test
+    @DisplayName("모든 유저 조회 : 데이터가 없는 경우")
+    void getAllNothing() {
+        List<User> users = dao.getAll();
+        assertEquals(0, users.size());
+    }
+
+    @Test
     @DisplayName("해당 id의 유저가 없을 경우")
-    void notFoundUser() throws SQLException{
+    void notFoundUser() {
         User find = dao.findById("ThisIsNotId");
 
         assertNull(find);
@@ -78,14 +85,14 @@ class UserDaoTest {
 
     @Test
     @DisplayName("전체 카운트 테스트")
-    void getCountAll()  throws SQLException {
+    void getCountAll() {
         dao.add(user1);
         assertEquals(1, dao.getCountAll());
     }
 
     @Test
     @DisplayName("삭제 테스트")
-    void deleteAll() throws SQLException{
+    void deleteAll() {
         dao.add(user1);
         assertEquals(1, dao.getCountAll());
         dao.deleteAll();

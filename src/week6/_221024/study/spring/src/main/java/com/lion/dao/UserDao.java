@@ -12,43 +12,38 @@ import java.util.List;
 public class UserDao {
     private JdbcTemplate jdbcTemplate;
 
+    private RowMapper<User> userMapper = new RowMapper<User>() {
+        @Override
+        public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return new User(rs.getString("id"), rs.getString("name"), rs.getString("password"));
+        }
+    };
+
     public UserDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void add(final User user) throws SQLException {
+    public void add(final User user) {
         this.jdbcTemplate.update("INSERT INTO users(id, name, password) VALUES (? , ?, ?)", user.getId(), user.getName(), user.getPassword());
     }
 
-    public User findById(String id) throws SQLException {
+    public User findById(String id) {
         try {
-            return this.jdbcTemplate.queryForObject("SELECT * FROM users WHERE users.id = ?", new RowMapper<User>() {
-                @Override
-                public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-                    System.out.println(rowNum);
-                    return new User(rs.getString("id"), rs.getString("name"), rs.getString("password"));
-                }
-            }, id);
+            return this.jdbcTemplate.queryForObject("SELECT * FROM users WHERE users.id = ?", this.userMapper, id);
         } catch (DataAccessException e) {
             return null;
         }
     }
 
     public List<User> getAll() {
-        return this.jdbcTemplate.query("SELECT * FROM users ORDER BY id", new RowMapper<User>() {
-            @Override
-            public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-                User user = new User(rs.getString("id"), rs.getString("name"), rs.getString("password"));
-                return user;
-            }
-        });
+        return this.jdbcTemplate.query("SELECT * FROM users ORDER BY id", this.userMapper);
     }
 
-    public int getCountAll() throws SQLException {
-        return this.jdbcTemplate.queryForObject("SELECT COUNT(*) FROM users",Integer.class);
+    public int getCountAll() {
+        return this.jdbcTemplate.queryForObject("SELECT COUNT(*) FROM users", Integer.class);
     }
 
-    public void deleteAll() throws SQLException{
+    public void deleteAll() {
         this.jdbcTemplate.update("DELETE FROM users");
     }
 }
