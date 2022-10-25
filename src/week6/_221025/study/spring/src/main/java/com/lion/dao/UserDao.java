@@ -6,12 +6,16 @@ import java.sql.*;
 import java.util.Map;
 
 public class UserDao {
-    public void add(final User user) throws ClassNotFoundException, SQLException {
+    private Connection getConnection() throws ClassNotFoundException, SQLException {
         Map<String, String> env = System.getenv();
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        Connection c = DriverManager.getConnection(env.get("DB_HOST"), env.get("DB_USER"), env.get("DB_PASSWORD"));
+        return DriverManager.getConnection(env.get("DB_HOST"), env.get("DB_USER"), env.get("DB_PASSWORD"));
+    }
+
+    public void add(final User user) throws ClassNotFoundException, SQLException {
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement("INSERT INTO users(id, name, password) VALUES (?, ?, ?)");
         ps.setString(1, user.getId());
@@ -25,11 +29,7 @@ public class UserDao {
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
-        Map<String, String> env = System.getenv();
-
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection c = DriverManager.getConnection(env.get("DB_HOST"), env.get("DB_USER"), env.get("DB_PASSWORD"));
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement(
                 "SELECT * FROM users WHERE id = ?");
@@ -50,11 +50,7 @@ public class UserDao {
     }
 
     public int getCount() throws ClassNotFoundException, SQLException {
-        Map<String, String> env = System.getenv();
-
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection c = DriverManager.getConnection(env.get("DB_HOST"), env.get("DB_USER"), env.get("DB_PASSWORD"));
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement("SELECT  COUNT(*) FROM users");
 
@@ -70,11 +66,7 @@ public class UserDao {
     }
 
     public void deleteAll() throws ClassNotFoundException, SQLException {
-        Map<String, String> env = System.getenv();
-
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        Connection c = DriverManager.getConnection(env.get("DB_HOST"), env.get("DB_USER"), env.get("DB_PASSWORD"));
+        Connection c = getConnection();
 
         PreparedStatement ps = c.prepareStatement("DELETE FROM users");
 
