@@ -8,13 +8,15 @@ import java.sql.*;
 
 public class UserDao {
     private DataSource dataSource;
+    private JdbcContext jdbcContext;
 
-    public UserDao(DataSource dataSource) {
+    public UserDao(DataSource dataSource, JdbcContext jdbcContext) {
         this.dataSource = dataSource;
+        this.jdbcContext = jdbcContext;
     }
 
     public void add(final User user) throws SQLException {
-        this.jdbcContextWithStatementStrategy(c -> {
+        this.jdbcContext.workWithStatementStrategy(c -> {
             PreparedStatement ps = c.prepareStatement("INSERT INTO users(id, name, password) VALUES (?, ?, ?)");
             ps.setString(1, user.getId());
             ps.setString(2, user.getName());
@@ -104,34 +106,7 @@ public class UserDao {
         return count;
     }
 
-    public void deleteAll() throws ClassNotFoundException, SQLException {
-        this.jdbcContextWithStatementStrategy(c -> c.prepareStatement("DELETE FROM users"));
-    }
-
-    private void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException {
-        Connection c = null;
-        PreparedStatement ps = null;
-
-        try {
-            c = dataSource.getConnection();
-            ps = stmt.makeStatement(c);
-
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ignore) {
-                }
-            }
-            if (c != null) {
-                try {
-                    c.close();
-                } catch (SQLException ignore) {
-                }
-            }
-        }
+    public void deleteAll() throws SQLException {
+        this.jdbcContext.executeSql("DELETE FROM users");
     }
 }

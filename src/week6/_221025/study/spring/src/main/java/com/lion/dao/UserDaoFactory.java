@@ -10,8 +10,8 @@ import java.util.Map;
 @Configuration
 public class UserDaoFactory {
     @Bean
-    public UserDao userDao(DataSource dataSource) {
-        return new UserDao(dataSource);
+    public UserDao userDao(DataSource dataSource, JdbcContext jdbcContext) {
+        return new UserDao(dataSource, jdbcContext);
     }
 
     @Bean
@@ -23,5 +23,10 @@ public class UserDaoFactory {
         dataSource.setUsername(env.get("DB_USER"));
         dataSource.setPassword(env.get("DB_PASSWORD"));
         return dataSource;
+    }
+
+    @Bean
+    public JdbcContext jdbcContext(DataSource dataSource) {
+        return new JdbcContext(dataSource);
     }
 }
