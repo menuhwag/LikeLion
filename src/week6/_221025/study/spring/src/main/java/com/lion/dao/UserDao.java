@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
     private JdbcTemplate jdbcTemplate;
@@ -26,13 +28,17 @@ public class UserDao {
         return user;
     }
 
+    public List<User> getAll() {
+        return this.jdbcTemplate.query("SELECT * FROM users", userMapper());
+    }
+
     public int getCount() {
         int count = 0;
         count = this.jdbcTemplate.queryForObject("SELECT  COUNT(*) FROM users", Integer.class);
         return count;
     }
 
-    public void deleteAll() throws SQLException {
+    public void deleteAll() {
         this.jdbcTemplate.update("DELETE FROM users");
     }
 
