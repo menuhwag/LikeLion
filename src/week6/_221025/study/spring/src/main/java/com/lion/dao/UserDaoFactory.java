@@ -1,10 +1,16 @@
 package com.lion.dao;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class UserDaoFactory {
-    public UserDao userDao() {
-        return new UserDao(connectionMaker());
+    @Bean
+    public UserDao userDao(ConnectionMaker connectionMaker) {
+        return new UserDao(connectionMaker);
     }
 
+    @Bean
     public ConnectionMaker connectionMaker() {
         return new AwsConnectionMaker();
     }

@@ -5,15 +5,24 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = UserDaoFactory.class)
 class UserDaoTest {
-    private UserDao dao = new UserDaoFactory().userDao();
+    @Autowired
+    private UserDao dao;
+
     private User user1 = new User("menu", "minwoo", "1234");
     private User user2 = new User("hwang", "hwang", "1234");
+
     @Nested
     @DisplayName("추가")
     class AddTest {
