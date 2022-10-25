@@ -14,33 +14,7 @@ public class UserDao {
     }
 
     public void add(final User user) throws ClassNotFoundException, SQLException {
-        Connection c = null;
-        PreparedStatement ps = null;
-
-        try {
-            c = connectionMaker.getConnection();
-            ps = c.prepareStatement("INSERT INTO users(id, name, password) VALUES (?, ?, ?)");
-            ps.setString(1, user.getId());
-            ps.setString(2, user.getName());
-            ps.setString(3, user.getPassword());
-
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (SQLException ignore) {
-                }
-            }
-            if (c != null) {
-                try {
-                    c.close();
-                } catch (SQLException ignore) {
-                }
-            }
-        }
+        this.jdbcContextWithStatementStrategy(new AddStrategy(user));
     }
 
     public User get(String id) throws ClassNotFoundException, SQLException {
@@ -125,15 +99,19 @@ public class UserDao {
     }
 
     public void deleteAll() throws ClassNotFoundException, SQLException {
+        this.jdbcContextWithStatementStrategy(new DeleteAllStrategy());
+    }
+
+    private void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException, ClassNotFoundException {
         Connection c = null;
         PreparedStatement ps = null;
 
         try {
             c = connectionMaker.getConnection();
-            ps = c.prepareStatement("DELETE FROM users");
+            ps = stmt.makeStatement(c);
 
             ps.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw e;
         } finally {
             if (ps != null) {
