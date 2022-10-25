@@ -3,28 +3,28 @@ package com.lion.dao;
 import com.lion.domain.User;
 import org.springframework.dao.EmptyResultDataAccessException;
 
+import javax.sql.DataSource;
 import java.sql.*;
-import java.util.Map;
 
 public class UserDao {
-    private ConnectionMaker connectionMaker;
+    private DataSource dataSource;
 
-    public UserDao(ConnectionMaker connectionMaker) {
-        this.connectionMaker = connectionMaker;
+    public UserDao(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
-    public void add(final User user) throws ClassNotFoundException, SQLException {
+    public void add(final User user) throws SQLException {
         this.jdbcContextWithStatementStrategy(new AddStrategy(user));
     }
 
-    public User get(String id) throws ClassNotFoundException, SQLException {
+    public User get(String id) throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         User user = null;
 
         try {
-            c = connectionMaker.getConnection();
+            c = dataSource.getConnection();
             ps = c.prepareStatement("SELECT * FROM users WHERE id = ?");
             ps.setString(1, id);
 
@@ -58,14 +58,14 @@ public class UserDao {
         return user;
     }
 
-    public int getCount() throws ClassNotFoundException, SQLException {
+    public int getCount() throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         int count = 0;
 
         try {
-            c = connectionMaker.getConnection();
+            c = dataSource.getConnection();
             ps = c.prepareStatement("SELECT  COUNT(*) FROM users");
 
             rs = ps.executeQuery();
@@ -102,16 +102,16 @@ public class UserDao {
         this.jdbcContextWithStatementStrategy(new DeleteAllStrategy());
     }
 
-    private void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException, ClassNotFoundException {
+    private void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
 
         try {
-            c = connectionMaker.getConnection();
+            c = dataSource.getConnection();
             ps = stmt.makeStatement(c);
 
             ps.executeUpdate();
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw e;
         } finally {
             if (ps != null) {
