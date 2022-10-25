@@ -2,6 +2,7 @@ package com.lion.dao;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
@@ -10,8 +11,8 @@ import java.util.Map;
 @Configuration
 public class UserDaoFactory {
     @Bean
-    public UserDao userDao(DataSource dataSource, JdbcContext jdbcContext) {
-        return new UserDao(dataSource, jdbcContext);
+    public UserDao userDao(JdbcTemplate jdbcTemplate) {
+        return new UserDao(jdbcTemplate);
     }
 
     @Bean
@@ -26,7 +27,7 @@ public class UserDaoFactory {
     }
 
     @Bean
-    public JdbcContext jdbcContext(DataSource dataSource) {
-        return new JdbcContext(dataSource);
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
     }
 }
