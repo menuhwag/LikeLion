@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserDaoTest {
-    private UserDao dao = new UserDao();
+    private UserDao dao = new UserDao(new AwsConnectionMaker());
     private User user1 = new User("menu", "minwoo", "1234");
     private User user2 = new User("hwang", "hwang", "1234");
     @Nested
