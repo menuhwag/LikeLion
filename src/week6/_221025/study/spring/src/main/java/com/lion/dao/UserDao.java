@@ -1,6 +1,7 @@
 package com.lion.dao;
 
 import com.lion.domain.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.sql.*;
 import java.util.Map;
@@ -79,6 +80,7 @@ public class UserDao {
                 }
             }
         }
+        if (user == null) throw new EmptyResultDataAccessException(1);
         return user;
     }
 

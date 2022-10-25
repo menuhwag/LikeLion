@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -53,8 +54,7 @@ class UserDaoTest {
         @Test
         @DisplayName("네거티브 테스트 : 검색결과 없음")
         void notFoundUser() throws SQLException, ClassNotFoundException {
-            User find = dao.get("NoUser");
-            assertNull(find);
+            assertThrows(EmptyResultDataAccessException.class, () -> dao.get("NoUser"));
         }
 
         @Test
