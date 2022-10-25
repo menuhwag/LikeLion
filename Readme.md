@@ -2,9 +2,9 @@
 
 ## 바로가기
 
- + 과제 디렉토리 **_[(221021)](https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework)_**
+[//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221024)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221024/study)_**
+ + 수업 디렉토리 **_[(221025)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221025/study)_**
 
 <br><br>
 
@@ -90,3 +90,6 @@
       + Bean
     + DI
     
+## Week 6
++ Spring
+  + JDBC Template
