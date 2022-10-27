@@ -1,9 +1,6 @@
 package com.springboot.hello.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/hello")
@@ -16,5 +13,10 @@ public class HelloController {
     @GetMapping("/{value}")
     public String pathValue(@PathVariable("value") String value) {
         return "echo " + value;
+    }
+
+    @GetMapping("/request-param")
+    public String reqParam(@RequestParam("name") String name, @RequestParam("age") Integer age) {
+        return name + ", " + age + "세";
     }
 }
