@@ -1,15 +1,13 @@
 package com.springboot.hello.controller;
 
 import com.springboot.hello.domain.dto.MemberDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/members")
 public class MemberController {
-    @GetMapping("")
-    public String member(MemberDto dto) {
+    @PostMapping("")
+    public String member(@RequestBody MemberDto dto) {
         return dto.toString();
     }
 }
