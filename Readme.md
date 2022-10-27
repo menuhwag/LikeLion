@@ -4,7 +4,7 @@
 
 [//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221026)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221026/study)_**
+ + 수업 디렉토리 **_[(221027)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221027/study)_**
 
 <br><br>
 
@@ -96,3 +96,13 @@
     + 해시 충돌
 + Spring
   + JDBC Template
++ SpringBoot
+  + DI
+    + 필드 주입
+    + 설정자 주입
+    + 생성자 주입
+  + 어노테이션
+    + `@RestController`
+    + `@RequestMapping`
+    + `@GetMapping`
+    + `@PathValue`
