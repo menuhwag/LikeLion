@@ -4,7 +4,7 @@
 
 [//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221027)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221027/study)_**
+ + 수업 디렉토리 **_[(221028)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221028/study)_**
 
 <br><br>
 
@@ -105,4 +105,10 @@
     + `@RestController`
     + `@RequestMapping`
     + `@GetMapping`
+    + `@PostMapping`
+    + `@PutMapping`
+    + `@DeleteMapping`
     + `@PathValue`
+    + `@RequestParam`
+    + `@RequestBody`
+  + Swagger
