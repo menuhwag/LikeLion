@@ -20,6 +20,7 @@ class UserDaoTest {
     private UserDao userDao;
 
     private User user1 = new User("menu", "황민우", "1234");
+    private User user2 = new User("hwang", "황민우", "1234");
 
     @BeforeEach
     void rollBack() {
@@ -36,10 +37,23 @@ class UserDaoTest {
     }
 
     @Test
-    void deleteAll() {
+    void findByIdNotFound() {
+        assertThrows(RuntimeException.class, () -> userDao.findById("NoUser"));
     }
 
     @Test
-    void findById() {
+    void getCount() {
+        userDao.add(user1);
+        assertEquals(1, userDao.getCount());
+        userDao.add(user2);
+        assertEquals(2, userDao.getCount());
+    }
+
+    @Test
+    void deleteAll() {
+        userDao.add(user1);
+        userDao.add(user2);
+        userDao.deleteAll();
+        assertEquals(0, userDao.getCount());
     }
 }

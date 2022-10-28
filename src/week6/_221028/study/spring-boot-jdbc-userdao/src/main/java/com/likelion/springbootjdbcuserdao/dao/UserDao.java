@@ -33,6 +33,12 @@ public class UserDao {
         return user;
     }
 
+    public int getCount() {
+        int count = 0;
+        count = this.jdbcTemplate.queryForObject("SELECT COUNT(*) FROM users", Integer.class);
+        return count;
+    }
+
     private final RowMapper<User> userMapper = new RowMapper<>() {
         @Override
         public User mapRow(ResultSet rs, int rowNum) throws SQLException {
