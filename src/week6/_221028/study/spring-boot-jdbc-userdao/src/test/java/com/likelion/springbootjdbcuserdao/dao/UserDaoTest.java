@@ -56,4 +56,12 @@ class UserDaoTest {
         userDao.deleteAll();
         assertEquals(0, userDao.getCount());
     }
+
+    @Test
+    void deleteById() {
+        userDao.add(user1);
+        assertEquals(1, userDao.getCount());
+        userDao.deleteById(user1.getId());
+        assertEquals(0, userDao.getCount());
+    }
 }

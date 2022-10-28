@@ -20,6 +20,10 @@ public class UserDao {
                 user.getId(), user.getName(), user.getPassword());
     }
 
+    public void deleteById(String id) {
+        this.jdbcTemplate.update("delete from users WHERE id=?", id);
+    }
+
     public int deleteAll() {
         return this.jdbcTemplate.update("delete from users");
     }

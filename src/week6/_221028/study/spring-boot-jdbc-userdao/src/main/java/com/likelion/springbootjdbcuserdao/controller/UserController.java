@@ -21,8 +21,20 @@ public class UserController {
     }
 
     @PostMapping("")
-    public ResponseEntity<UserResDTO> create(@RequestBody UserReqDTO dto) {
+    public ResponseEntity<Void> create(@RequestBody UserReqDTO dto) {
         userDao.add(dto.toEntity());
-        return ResponseEntity.status(201).build();
+        return ResponseEntity.status(201).build(); // Created
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable("id") String id) {
+        userDao.deleteById(id);
+        return ResponseEntity.status(204).build(); // No Contents
+    }
+
+    @DeleteMapping("/all")
+    public ResponseEntity<Void> deleteAll() {
+        userDao.deleteAll();
+        return ResponseEntity.status(204).build(); // No Contents
     }
 }
