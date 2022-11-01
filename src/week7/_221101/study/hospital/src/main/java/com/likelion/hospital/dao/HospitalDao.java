@@ -1,6 +1,7 @@
 package com.likelion.hospital.dao;
 
 import com.likelion.hospital.domain.Hospital;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -34,32 +35,38 @@ public class HospitalDao {
                     Float.valueOf(rs.getString("total_area_size")));
 
     public void insert(Hospital hospital) {
-        jdbcTemplate.update(
-                "INSERT INTO nation_wide_hospitals" +
-                        "(id," +
-                        "open_service_name," +
-                        "open_local_government_code," +
-                        "management_number," +
-                        "license_date," +
-                        "business_status," +
-                        "business_status_code," +
-                        "phone," +
-                        "full_address," +
-                        "road_name_address," +
-                        "hospital_name," +
-                        "business_type_name," +
-                        "healthcare_provider_count," +
-                        "patient_room_count," +
-                        "total_number_of_beds," +
-                        "total_area_size)" +
-                        "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);",
-                hospital.getId(), hospital.getOpenServiceName(), hospital.getOpenLocalGovernmentCode()
-                , hospital.getManagementNumber(), hospital.getLicenseDate(), hospital.getBusinessStatus(), hospital.getBusinessStatusCode()
-                , hospital.getPhone(), hospital.getFullAddress(), hospital.getRoadNameAddress(), hospital.getHospitalName(), hospital.getBusinessTypeName()
-                , hospital.getHealthcareProviderCount(), hospital.getPatientRoomCount(), hospital.getTotalNumberOfBeds(), hospital.getTotalAreaSize());
+        try {
+            jdbcTemplate.update(
+                    "INSERT INTO nation_wide_hospitals" +
+                            "(id, open_service_name, open_local_government_code," +
+                            "management_number, license_date, business_status," +
+                            "business_status_code, phone, full_address," +
+                            "road_name_address, hospital_name, business_type_name," +
+                            "healthcare_provider_count, patient_room_count, total_number_of_beds," +
+                            "total_area_size)" +
+                            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);",
+                    hospital.getId(), hospital.getOpenServiceName(), hospital.getOpenLocalGovernmentCode()
+                    , hospital.getManagementNumber(), hospital.getLicenseDate(), hospital.getBusinessStatus()
+                    , hospital.getBusinessStatusCode() , hospital.getPhone(), hospital.getFullAddress()
+                    , hospital.getRoadNameAddress(), hospital.getHospitalName(), hospital.getBusinessTypeName()
+                    , hospital.getHealthcareProviderCount(), hospital.getPatientRoomCount(), hospital.getTotalNumberOfBeds()
+                    , hospital.getTotalAreaSize());
+        } catch (DataIntegrityViolationException e) {
+            System.out.println(String.format("[%s] %s\n", e.getMessage(),  hospital));
+        }
     }
 
-    public void delete(int id) {
+    public Hospital findById(int id) {
+        return jdbcTemplate.queryForObject("SELECT * FROM nation_wide_hospitals WHERE id = ? ", rowMapper,id);
+    }
+
+    public int getCount() {
+        int count = 0;
+        count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM nation_wide_hospitals", Integer.class);
+        return count;
+    }
+
+    public void deleteById(int id) {
         jdbcTemplate.update("DELETE FROM nation_wide_hospitals WHERE id = ?", id);
     }
 
@@ -67,11 +74,7 @@ public class HospitalDao {
         jdbcTemplate.update("DELETE FROM nation_wide_hospitals");
     }
 
-    public List<Hospital> selectAll() {
+    public List<Hospital> findAll() {
         return jdbcTemplate.query("SELECT * FROM nation_wide_hospitals", rowMapper);
-    }
-
-    public Hospital selectById(int id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM nation_wide_hospitals WHERE id = ? ", rowMapper,id);
     }
 }
