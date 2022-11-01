@@ -4,7 +4,7 @@
 
 [//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221028)](https://github.com/menuhwang/LikeLion/tree/main/src/week6/_221028/study)_**
+ + 수업 디렉토리 **_[(221102)](https://github.com/menuhwang/LikeLion/tree/main/src/week7/_221102/study)_**
 
 <br><br>
 
@@ -112,3 +112,6 @@
     + `@RequestParam`
     + `@RequestBody`
   + Swagger
+
+## Week 7
++ 
