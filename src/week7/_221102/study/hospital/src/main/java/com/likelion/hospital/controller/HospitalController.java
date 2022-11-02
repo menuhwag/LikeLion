@@ -36,4 +36,10 @@ public class HospitalController {
             hospitals.stream().map(HospitalResDTO::from).collect(Collectors.toList())
         );
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable("id") int id) {
+        hospitalDao.deleteById(id);
+        return ResponseEntity.status(204).build(); // no contents
+    }
 }
