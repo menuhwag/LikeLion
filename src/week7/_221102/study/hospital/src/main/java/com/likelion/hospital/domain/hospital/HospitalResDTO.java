@@ -14,6 +14,7 @@ public class HospitalResDTO {
     private int healthcareProviderCount;
     private int patientRoomCount;
     private float totalAreaSize;
+    private boolean shutDown;
 
     public static HospitalResDTO from(Hospital hospital) {
         HospitalResDTO dto = new HospitalResDTO();
@@ -23,6 +24,7 @@ public class HospitalResDTO {
         dto.healthcareProviderCount = hospital.getHealthcareProviderCount();
         dto.patientRoomCount = hospital.getPatientRoomCount();
         dto.totalAreaSize = hospital.getTotalAreaSize();
+        dto.shutDown = hospital.isShutDown();
         return dto;
     }
 }
