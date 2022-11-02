@@ -77,4 +77,8 @@ public class HospitalDao {
     public List<Hospital> findAll() {
         return jdbcTemplate.query("SELECT * FROM nation_wide_hospitals", rowMapper);
     }
+
+    public List<Hospital> searchByAddress(String address) {
+        return jdbcTemplate.query("SELECT * FROM nation_wide_hospitals WHERE road_name_address LIKE ? LIMIT 10", rowMapper,"%" + address + "%");
+    }
 }
