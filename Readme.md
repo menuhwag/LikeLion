@@ -114,6 +114,8 @@
   + Swagger
 
 ## Week 7
++ 알고리즘
+  + 에라토스테네스의 체
 + 배포
   + EC2
   + Docker
