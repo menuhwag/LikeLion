@@ -10,6 +10,10 @@ public class Eratosthenes {
                 check[i * j - 1] = -1;
             }
         }
-
+        int count = 0;
+        for (int flag : check) {
+            if (flag > -1) count++;
+        }
+        return count;
     }
 }
