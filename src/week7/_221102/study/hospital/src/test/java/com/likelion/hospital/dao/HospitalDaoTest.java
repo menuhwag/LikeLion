@@ -67,6 +67,7 @@ class HospitalDaoTest {
     @Test
     @DisplayName("카운트")
     void getCount() {
+        System.out.println(dao.getCount());
 //        assertEquals(0, dao.getCount());
 //        dao.insert(hospital);
 //        assertEquals(1, dao.getCount());
