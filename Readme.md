@@ -4,7 +4,7 @@
 
 [//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221108)](https://github.com/menuhwang/LikeLion/tree/main/src/week8/_221108/study)_**
+ + 수업 디렉토리 **_[(221109)](https://github.com/menuhwang/LikeLion/tree/main/src/week8/_221109/study)_**
 
 <br><br>
 
@@ -124,3 +124,4 @@
 + 알고리즘
   + 선형 탐색
 + Mustache
++ JPA
