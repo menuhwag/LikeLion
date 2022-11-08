@@ -6,5 +6,6 @@ public class BinarySearchTest {
         BinarySearch binarySearch = new BinarySearch();
         System.out.println(binarySearch.search(arr, 7)); // 기댓값 : 6
         System.out.println(binarySearch.search(arr, 2)); // 기댓값 : 1
+        System.out.println(binarySearch.search(arr, 12)); // 값이 없는 경우 : -1
     }
 }
