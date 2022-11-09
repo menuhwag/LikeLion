@@ -1,25 +1,25 @@
 package week8._221109.study.algorithm.select_sort;
 
 public class SelectSort {
-    public int[] sort(int[] arr) {
-        return sort(arr, 0);
+    public int[] sort(int[] arr, Comparator comparator) {
+        return sort(arr, 0, comparator);
     }
 
-    private int[] sort(int[] arr, int target) {
+    private int[] sort(int[] arr, int target , Comparator comparator) {
         if (arr.length == target) return arr;
-        int minIdx = searchMinVal(arr, target);
-        swap(arr, target, minIdx);
-        return sort(arr, target + 1);
+        int findIdx = searchVal(arr, target, comparator);
+        swap(arr, target, findIdx);
+        return sort(arr, target + 1, comparator);
     }
 
-    private int searchMinVal(int[] arr, int target) {
-        int minIdx = target;
+    private int searchVal(int[] arr, int target, Comparator comparator) {
+        int findIdx = target;
         for (int i = target + 1; i < arr.length; i++) {
-            if (arr[minIdx] > arr[i]) {
-                minIdx = i;
+            if (comparator.compare(arr[findIdx], arr[i])) {
+                findIdx = i;
             }
         }
-        return minIdx;
+        return findIdx;
     }
 
     private void swap(int[] arr, int a, int b) {
