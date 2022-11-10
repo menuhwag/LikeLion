@@ -21,8 +21,8 @@ public class Solution {
     public int[] solution2(int[] arr) {
         List<Integer> answerList = new ArrayList<>();
         answerList.add(arr[0]);
-        for (int num : arr) {
-            if (answerList.get(answerList.size() - 1) != num) answerList.add(num);
+        for (int i = 1; i < arr.length; i++) {
+            if (answerList.get(answerList.size() - 1) != arr[i]) answerList.add(arr[i]);
         }
         int[] answer = new int[answerList.size()];
         for (int i = 0; i < answerList.size(); i++) {
