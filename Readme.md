@@ -4,7 +4,7 @@
 
 [//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221109)](https://github.com/menuhwang/LikeLion/tree/main/src/week8/_221109/study)_**
+ + 수업 디렉토리 **_[(221114)](https://github.com/menuhwang/LikeLion/tree/main/src/week9/_221114/study)_**
 
 <br><br>
 
@@ -123,5 +123,7 @@
 ## Week 8
 + 알고리즘
   + 선형 탐색
+  + 10진수 2수 변환
+  + 선택 정렬
 + Mustache
 + JPA
