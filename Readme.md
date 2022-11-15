@@ -4,7 +4,7 @@
 
 [//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221114)](https://github.com/menuhwang/LikeLion/tree/main/src/week9/_221114/study)_**
+ + 수업 디렉토리 **_[(221115)](https://github.com/menuhwang/LikeLion/tree/main/src/week9/_221115/study)_**
 
 <br><br>
 
@@ -127,3 +127,9 @@
   + 선택 정렬
 + Mustache
 + JPA
+
+## Week 9
++ 알고리즘
+  + 퀵 정렬
++ Spring Data JPA
++ JPQL
