@@ -7,9 +7,9 @@ public class QuickSortTest {
         QuickSort quickSort = new QuickSort();
         int[] arr1 = {20, 18, 5, 19, 40, 50, 5, 25};
         int[] arr2 = {20, 60, 5, 19, 40, 50, 5, 45};
-        quickSort.sort(arr1, 0, arr1.length);
+        quickSort.sort(arr1, 0, arr1.length-1);
         System.out.println(Arrays.toString(arr1));
-        quickSort.sort(arr2, 0, arr2.length);
+        quickSort.sort(arr2, 0, arr2.length-1);
         System.out.println(Arrays.toString(arr2));
     }
 }
