@@ -6,7 +6,7 @@ public class QuickSortTest {
     public static void main(String[] args) {
         int[] arr = {20, 18, 5, 19, 40, 50, 5, 25};
         QuickSort quickSort = new QuickSort();
-        int[] sort = quickSort.sort(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(sort));
+        quickSort.sort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
     }
 }
