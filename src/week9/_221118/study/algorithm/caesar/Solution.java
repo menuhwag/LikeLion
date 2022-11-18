@@ -5,11 +5,12 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
-            if (ch != ' '){
+            if ('A' <= ch && 'Z' >= ch) {
                 ch += n;
-                if (('Z' < ch && 'a' > ch ) || ch > 'z') {
-                    ch -= 26;
-                }
+                if (ch > 'Z') ch = (char) (ch % 'Z' + 64);
+            } else if ('a' <= ch && 'z' >= ch) {
+                ch += n;
+                if (ch > 'z') ch = (char) (ch % 'z' + 96);
             }
             sb.append(ch);
         }
