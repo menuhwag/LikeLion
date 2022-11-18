@@ -4,7 +4,7 @@
 
 [//]: # ( + 과제 디렉토리 **_[&#40;221021&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week5/_221021/homework&#41;_**)
 
- + 수업 디렉토리 **_[(221115)](https://github.com/menuhwang/LikeLion/tree/main/src/week9/_221115/study)_**
+[//]: # ( + 수업 디렉토리 **_[&#40;221115&#41;]&#40;https://github.com/menuhwang/LikeLion/tree/main/src/week9/_221115/study&#41;_**)
  + SpringBoot Project [전국 병원 검색](https://github.com/menuhwang/springboot-hospital)
 <br><br>
 
@@ -135,4 +135,5 @@
 + JPQL
 + 배포
   + 배포 자동화 (쉘 스크립트)
++ Test Code 작성
   
