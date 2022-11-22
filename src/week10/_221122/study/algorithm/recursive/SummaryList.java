@@ -12,12 +12,7 @@ public class SummaryList {
     }
 
     private static int summary(List<Integer> list) {
-        return summary(list, 0);
-    }
-
-    private static int summary(List<Integer> list, int init) {
-        if (list.isEmpty()) return init;
-        int element = list.remove(list.size() - 1);
-        return summary(list, init + element);
+        if (list.isEmpty()) return 0;
+        return list.remove(list.size() - 1) + summary(list);
     }
 }
