@@ -3,15 +3,25 @@ package week11._221129.study.algorithm.radix_sort;
 import java.util.*;
 
 public class RadixSort {
-    private static int DEC = 10;
+    private int DEC = 10;
 
-    public static int[] sortByFirstDigit(int[] arr) {
+    public int[] sort(int[] arr) {
+        int[] sorted = Arrays.copyOf(arr, arr.length);
+        int[] digits = getDigits(arr);
+        for (int digit : digits) {
+            sorted = sortByDigit(sorted, digit);
+        }
+        return sorted;
+    }
+
+    private int[] sortByDigit(int[] arr, int digit) {
         Queue<Integer>[] radix = new Queue[DEC];
         for (int i = 0; i < DEC; i++) {
             radix[i] = new ArrayDeque<>();
         }
         for (int i = 0; i < arr.length; i++) {
-            radix[arr[i] % DEC].add(arr[i]);
+            int div = Math.floorDiv(arr[i], (int) Math.pow(DEC, digit - 1));
+            radix[div % DEC].add(arr[i]);
         }
         int[] sorted = new int[arr.length];
         int index = 0;
@@ -25,7 +35,7 @@ public class RadixSort {
         return sorted;
     }
 
-    public static int[] getDigits(int[] arr) {
+    private int[] getDigits(int[] arr) {
         Set<Integer> digits = new HashSet<>();
         for (int num : arr) {
             if (num == 0) digits.add(1);
@@ -41,10 +51,9 @@ public class RadixSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {7, 14, 5, 9, 1, 0, 11, 4, 15};
-        int[] sorted = sortByFirstDigit(arr);
+        int[] arr = {7, 175, 14, 5, 9, 1, 0, 11, 4, 15, 115, 230};
+        RadixSort radixSort = new RadixSort();
+        int[] sorted = radixSort.sort(arr);
         System.out.println(Arrays.toString(sorted));
-        int[] digits = getDigits(arr);
-        System.out.println(Arrays.toString(digits));
     }
 }
