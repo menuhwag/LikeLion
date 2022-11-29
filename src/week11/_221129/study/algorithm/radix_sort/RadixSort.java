@@ -6,12 +6,11 @@ public class RadixSort {
     private int DEC = 10;
 
     public int[] sort(int[] arr) {
-        int[] sorted = Arrays.copyOf(arr, arr.length);
         int[] digits = getDigits(arr);
         for (int digit : digits) {
-            sorted = sortByDigit(sorted, digit);
+            arr = sortByDigit(arr, digit);
         }
-        return sorted;
+        return arr;
     }
 
     private int[] sortByDigit(int[] arr, int digit) {
