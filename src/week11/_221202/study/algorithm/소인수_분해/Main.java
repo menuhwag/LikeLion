@@ -9,20 +9,16 @@ public class Main {
         int num = scanner.nextInt();
         int div = 2;
         while(num > 1) {
-            if (isPrime(div)) {
-                while (num % div == 0) {
-                    num /= div;
-                    System.out.printf("%d ", div);
-                }
+            while (num % div == 0) {
+                num /= div;
+                System.out.printf("%d ", div);
             }
             div++;
         }
-    }
-
-    private static boolean isPrime(int number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) return false;
-        }
-        return true;
+        /*
+        * 소수임을 판별할 필요가 없다.
+        * 어짜피 2부터 차례대로 나누면서
+        * 소수가 아닌 숫자들이 걸러지기때문 like 에라토스테네스의 체
+        * */
     }
 }
