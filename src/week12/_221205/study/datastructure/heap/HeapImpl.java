@@ -22,6 +22,14 @@ public class HeapImpl {
         sort(index - 1);
     }
 
+    private int getLeftChild(int parentIdx) {
+        return 2 * parentIdx;
+    }
+
+    private int getRightChild(int parentIdx) {
+        return 2 * parentIdx + 1;
+    }
+
     private int getParent(int childIdx) {
         return childIdx / 2;
     }
