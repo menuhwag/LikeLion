@@ -1,23 +1,29 @@
 package week12._221205.study.datastructure.heap;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class HeapImpl {
     int[] heap;
     public HeapImpl(int[] arr) {
         this.heap = arr;
-        sort(arr.length);
+        sort(arr.length, (n1, n2) -> n1 - n2);
     }
 
-    private void sort(int index) {
+    public HeapImpl(int[] arr, Comparator<Integer> c) {
+        this.heap = arr;
+        sort(arr.length, c);
+    }
+
+    private void sort(int index, Comparator<Integer> c) {
         if (index <= 1) return;
         int chileIdx = index - 1;
         int parentIdx = getParent(index) - 1;
-        if (heap[chileIdx] > heap[parentIdx]) {
+        if (c.compare(heap[parentIdx], heap[chileIdx]) > 0) {
             swap(chileIdx, parentIdx);
-            sort(parentIdx + 1);
+            sort(parentIdx + 1, c);
         }
-        sort(index - 1);
+        sort(index - 1, c);
     }
 
     private int getLeftChild(int parentIdx) {
