@@ -16,8 +16,6 @@ public class HeapImpl {
         if (heap[chileIdx] > heap[parentIdx]) {
             swap(chileIdx, parentIdx);
             sort(parentIdx + 1);
-        } else {
-            return;
         }
         sort(index - 1);
     }
