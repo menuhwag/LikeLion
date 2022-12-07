@@ -36,8 +36,17 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[][] jobs = {{0, 3}, {1, 9}, {2, 6}}; // 9
-        int result = new Solution().solution(jobs);
+        int[][] jobs = null;
+        int result = 0;
+        Solution solution = new Solution();
+        jobs = new int[][] {{0, 3}, {1, 9}, {2, 6}}; // 9
+        result = solution.solution(jobs);
+        System.out.println(result);
+        jobs = new int[][] {{7, 8}, {3, 5}, {8, 6}}; // 8
+        result = solution.solution(jobs);
+        System.out.println(result);
+        jobs = new int[][] {{7, 8}, {3, 5}, {9, 6}}; // 9
+        result = solution.solution(jobs);
         System.out.println(result);
     }
 }
