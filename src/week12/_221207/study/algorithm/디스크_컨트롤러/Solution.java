@@ -7,33 +7,31 @@ public class Solution {
         int timestamp = 0;
         int answer = 0;
 
-        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> o1[0] - o2[0]);
+        PriorityQueue<int[]> process = new PriorityQueue<>((o1, o2) -> o1[0] - o2[0]);
+        PriorityQueue<int[]> waitingQueue = new PriorityQueue<>((o1, o2) -> o1[1] - o2[1]);
         for (int i = 0; i < jobs.length; i++) {
-            queue.add(jobs[i]);
+            process.add(jobs[i]);
         }
 
-        for (int i = 0; i < jobs.length; i++) { // poll 할때 비교
-            // 타임스탬프보다 요청시간이 크거나 같으면 즉, 디스크가 동작하고 있지 않으면 비교없이 그냥 바로 먼저 들어온 요청을 시작
-            // 타임스태프보다 작으면 뒤에 값이랑 비교해서 작업시간이 짧은 작업부터 진행.
-            int[] job1 = queue.poll();
-            int[] job2 = queue.poll();
-            if (timestamp <= job1[0]) {
-                queue.add(job2);
-                timestamp = Math.max(timestamp, job1[0]) + job1[1];
-                answer += job1[1];
-                continue;
+        /*
+        * 1. 현재 작업 중에 들어온 요청들을 큐에 담는다. (timestamp보다 요청시간이 작거나 같은 작업)
+        * 2. 그 큐는 작업시간의 오름차순으로 정렬된다.
+        * 3. 그 큐가 빌때까지 작업한다.
+        * 4. 반복한다.
+        * 엣지 케이스
+        * timestamp보다 요청시간이 늦는 경우 => waitingQueue가 비어있는 경우.
+        * */
+        while (!process.isEmpty()) {
+            while ((process.peek() != null && process.peek()[0] <= timestamp) || waitingQueue.isEmpty()) { // 진행할 작업 예약.
+                waitingQueue.add(process.poll());
             }
-            int[] execute;
-            if (job2 != null) {
-                execute = (job1[1] <= job2[1]) ? job1 : job2; // 요청시간이 작은 작업.
-                queue.add((job1[1] > job2[1]) ? job1 : job2); // 요청시간이 큰 작업 복원.
-            } else {
-                execute = job1;
+            while (!waitingQueue.isEmpty()) { // 예약된 작업 진행.
+                int[] job = waitingQueue.poll();
+                timestamp = Math.max(timestamp, job[0]);
+                answer += timestamp - job[0] + job[1];
+                timestamp += job[1];
             }
-            answer += timestamp - execute[0] + execute[1];
-            timestamp += execute[1];
         }
-
         return answer / jobs.length;
     }
 
