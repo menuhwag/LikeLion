@@ -27,6 +27,20 @@ public class Fibonacci {
         return fibonacci2(num - 1) + fibonacci2(num - 2);
     }
 
+    public static int fibonacci3(int num) {
+        memo = new int[num];
+        for (int i = 0; i < num; i++) {
+            if (i < 2) {
+                memo[i] = 1;
+                continue;
+            }
+            if (memo[i] == 0) {
+                memo[i] = memo[i - 1] + memo[i - 2];
+            }
+        }
+        return memo[num - 1];
+    }
+
     public static void main(String[] args) {
         long start;
         long end;
@@ -37,6 +51,11 @@ public class Fibonacci {
 
         start = System.currentTimeMillis();
         System.out.println(Fibonacci.fibonacci2(46));
+        end = System.currentTimeMillis();
+        System.out.printf("DP : %dms\n", end - start);
+
+        start = System.currentTimeMillis();
+        System.out.println(Fibonacci.fibonacci3(46));
         end = System.currentTimeMillis();
         System.out.printf("DP : %dms\n", end - start);
     }
