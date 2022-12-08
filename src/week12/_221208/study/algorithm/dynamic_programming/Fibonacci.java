@@ -11,12 +11,12 @@ public class Fibonacci {
     }
 
     private static int fibonacci1(int num) {
+        if (marker[num - 1]) return memo[num - 1];
         if (num <= 2) {
             marker[num - 1] = true;
             memo[num - 1] = 1;
             return 1;
         }
-        if (marker[num - 1]) return memo[num - 1];
         marker[num - 1] = true;
         memo[num - 1] = fibonacci1(num - 1) + fibonacci1(num - 2);
         return memo[num - 1];
