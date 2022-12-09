@@ -26,7 +26,7 @@ public class LCS {
         }
     }
 
-    // 2차원 배열 출
+    // 2차원 배열 출력
     public void printTable() {
         for (int i = 0; i < table.length; i++) {
             System.out.println(Arrays.toString(table[i]));
