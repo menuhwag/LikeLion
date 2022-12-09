@@ -26,6 +26,10 @@ public class LCS {
         }
     }
 
+    public int longest() {
+        return table[shortStr.length()][longStr.length()];
+    }
+
     // 2차원 배열 출력
     public void printTable() {
         for (int i = 0; i < table.length; i++) {
@@ -43,17 +47,20 @@ public class LCS {
         lcs = new LCS(str1, str2);
         System.out.printf("%s:%s\n", str1, str2);
         lcs.printTable();
+        System.out.println(lcs.longest());
 
         str1 = "ABCD";
         str2 = "DCBA";
         lcs = new LCS(str1, str2);
         System.out.printf("%s:%s\n", str1, str2);
         lcs.printTable();
+        System.out.println(lcs.longest());
 
         str1 = "DDDD";
         str2 = "D";
         lcs = new LCS(str1, str2);
         System.out.printf("%s:%s\n", str1, str2);
         lcs.printTable();
+        System.out.println(lcs.longest());
     }
 }
