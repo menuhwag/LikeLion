@@ -16,11 +16,17 @@ public class CardGame {
         for (int i = 0; i < memo.length; i++) {
             memo[i][i] = new Pair(cards[i], 0);
         }
+        for (int i = 0; i < memo.length - 1; i++) {
+            memo[i][i + 1] = new Pair(Math.max(cards[i], cards[i + 1]), Math.min(cards[i], cards[i + 1]));
+        }
     }
 
     public void print() {
         for (Pair[] row : memo) {
-            System.out.println(Arrays.toString(row));
+            for (Pair element : row) {
+                System.out.printf("%s\t", element);
+            }
+            System.out.println();
         }
     }
 }
